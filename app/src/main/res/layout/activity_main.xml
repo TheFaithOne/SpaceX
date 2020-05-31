@@ -13,6 +13,6 @@
         android:layout_height="match_parent"
         app:navGraph="@navigation/navigation"
         app:defaultNavHost="true"
-        tools:layout="@layout/title_screen" />
+        tools:layout="@layout/fragment_title_screen" />
 
 </LinearLayout>

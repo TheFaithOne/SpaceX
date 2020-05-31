@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
     app:startDestination="@id/titleFragment">
 
     <fragment
         android:id="@+id/titleFragment"
         android:name="vitaliyr.example.spacex.overview.TitleScreenFragment"
-        android:label="TitleFragment" >
+        android:label="@string/spacex_app_name"
+        tools:layout="@layout/fragment_title_screen">
         <action
             android:id="@+id/action_titleFragment_to_missionsScreenFragment"
             app:destination="@id/missionsScreenFragment" />
@@ -14,5 +17,20 @@
     <fragment
         android:id="@+id/missionsScreenFragment"
         android:name="vitaliyr.example.spacex.missions.MissionsScreenFragment"
-        android:label="MissionsScreenFragment" />
+        android:label="@string/missions"
+        tools:layout="@layout/missions_lsit">
+        <action
+            android:id="@+id/action_missionsScreenFragment_to_missions_details"
+            app:destination="@id/missions_details" />
+    </fragment>
+    <fragment
+        android:id="@+id/missions_details"
+        android:name="vitaliyr.example.spacex.missions.Missions_details"
+        android:label="@string/mission_details_string"
+        tools:layout="@layout/fragment_missions_details">
+        <argument
+            android:name="missionSelected"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

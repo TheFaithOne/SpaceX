@@ -17,12 +17,9 @@ class TitleScreenViewModel : ViewModel() {
     val companyInfo: LiveData<CompanyInfo>
         get() = _companyInfo
 
-    init {
-        getCompanyInfo()
-    }
 
 
-    private fun getCompanyInfo() {
+     fun getCompanyInfo() {
          val service =
             RetrofitClientInstance.retrofitInstance?.create(GetJsonData::class.java)
         val call = service?.getCompanyInfo()?.enqueue(object : Callback<CompanyInfo> {
@@ -33,15 +30,6 @@ class TitleScreenViewModel : ViewModel() {
             override fun onResponse(call: Call<CompanyInfo>, response: Response<CompanyInfo>) {
                 val body = response.body()
                 _companyInfo.value = body
-
-//            if(body != null) {
-//                    _companyInfo.value = CompanyInfo(
-//                    body.name, body.founder, body.founded, body.employees,
-//                    body.vehicles, body.launch_sites, body.test_sites, body.ceo, body.cto,
-//                    body.coo, body.cto_propulsion, body.valuation, body.headquarters,
-//                    body.links, body.summary
-//                )
-//            }
             }
         })
     }

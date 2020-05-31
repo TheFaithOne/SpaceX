@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import vitaliyr.example.spacex.dtos.CompanyInfo
-import vitaliyr.example.spacex.dtos.Missions
+import vitaliyr.example.spacex.dtos.MissionsDTO
 
 object RetrofitClientInstance {
     private var retrofit: Retrofit? = null
@@ -37,5 +37,5 @@ interface GetJsonData {
     fun getCompanyInfo(): retrofit2.Call<CompanyInfo>
 
     @GET("missions")
-    fun getMissions(): retrofit2.Call<List<Missions>>
+    fun getMissions(): retrofit2.Call<List<MissionsDTO>>
 }

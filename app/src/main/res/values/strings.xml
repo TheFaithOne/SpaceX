@@ -5,4 +5,8 @@
     <string name="social_links">SpaceX website: %1$s \nFlickr: %2$s \nTwitter: %3$s \nElon\'s Twitter: %4$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="missions_details">Mission\'s Details:</string>
+    <string name="spacex_app_name">SpaceX App</string>
+    <string name="missions">Missions</string>
+    <string name="mission_details_string">Mission Details</string>
 </resources>

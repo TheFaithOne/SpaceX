@@ -1,18 +1,14 @@
 package vitaliyr.example.spacex.dtos
 
-data class Missions(var array : List<MissionsDTO>){
+import com.squareup.moshi.Json
 
-}
 
 data class MissionsDTO(var mission_name: String,
-                       var mission_id: String,
+                       @Json(name = "mission_id")var missionId: String,
                        var manufacturers: List<String>,
-                       var payloadIds: List<String>,
-                       var links: MissionLinks,
+                       @Json(name = "payload_ids")var payloadIds: List<String>,
+                       var wikipedia: String? ="",
+                       var website: String?= "",
+                       var twitter: String? = "",
                        var description: String){
-}
-
-data class MissionLinks(var wikipedia: String,
-                        var website: String,
-                        var twitter: String){
 }

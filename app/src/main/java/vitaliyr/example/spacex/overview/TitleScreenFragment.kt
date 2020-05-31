@@ -10,7 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import vitaliyr.example.spacex.R
-import vitaliyr.example.spacex.databinding.TitleScreenBinding
+import vitaliyr.example.spacex.databinding.FragmentTitleScreenBinding
+
 
 
 /**
@@ -32,10 +33,14 @@ class TitleScreenFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: TitleScreenBinding = DataBindingUtil
-            .inflate(inflater, R.layout.title_screen, container, false)
+        val binding: FragmentTitleScreenBinding = DataBindingUtil
+            .inflate(inflater, R.layout.fragment_title_screen, container, false)
 
         viewModel = ViewModelProvider(this).get(TitleScreenViewModel::class.java)
+
+        viewModel.getCompanyInfo()
+
+        //binding.spacexLogo.setImageResource(viewModel.spacexLogo)
 
         binding.buttonMissions.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_missionsScreenFragment)
