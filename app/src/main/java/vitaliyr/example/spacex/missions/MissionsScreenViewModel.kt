@@ -16,11 +16,15 @@ class MissionsScreenViewModel: ViewModel() {
     val missions: LiveData<List<MissionsDTO>>
     get() = _missions
 
+    private val _downloadFailed = MutableLiveData<String>()
+    val downloadFailed: LiveData<String>
+        get() = _downloadFailed
+
     fun getMissions(){
         val service = RetrofitClientInstance.retrofitInstance?.create(GetJsonData::class.java)
         val call = service?.getMissions()?.enqueue(object: Callback<List<MissionsDTO>>{
             override fun onFailure(call: Call<List<MissionsDTO>>, t: Throwable) {
-                val downloadFailed = "Failed to download missions: ${t.message}"
+                _downloadFailed.value = "Failed to download missions: ${t.message}"
                 Log.d("MissionsScreenViewModel", "failed to downbload ${t.message}")
             }
 

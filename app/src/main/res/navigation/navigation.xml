@@ -9,11 +9,7 @@
         android:id="@+id/titleFragment"
         android:name="vitaliyr.example.spacex.overview.TitleScreenFragment"
         android:label="@string/spacex_app_name"
-        tools:layout="@layout/fragment_title_screen">
-        <action
-            android:id="@+id/action_titleFragment_to_missionsScreenFragment"
-            app:destination="@id/missionsScreenFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_title_screen"/>
     <fragment
         android:id="@+id/missionsScreenFragment"
         android:name="vitaliyr.example.spacex.missions.MissionsScreenFragment"
@@ -34,5 +30,10 @@
             android:name="selectedMission"
             app:argType="vitaliyr.example.spacex.dtos.MissionsDTO" />
     </fragment>
+    <fragment
+        android:id="@+id/coresFragment"
+        android:name="vitaliyr.example.spacex.cores.CoresFragment"
+        android:label="@string/cores"
+        tools:layout="@layout/cores_list" />
 
 </navigation>

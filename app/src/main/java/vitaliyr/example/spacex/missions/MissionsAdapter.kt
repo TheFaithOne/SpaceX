@@ -18,7 +18,7 @@ class MissionsAdapter(private val onClickListener: OnClickListener) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val mission = getItem(position)
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             onClickListener.onClick(mission)
         }
         holder.bind(mission)
@@ -33,11 +33,8 @@ class ViewHolder(private val binding: MissionsLsitBinding) : RecyclerView.ViewHo
 
     fun bind(
         item: MissionsDTO
-        //clickListener: OnClickListener
     ) {
-        //binding.missionName.text = item.mission_name
         binding.missionId = item
-        //binding.clickListener = clickListener
     }
 
     companion object {
@@ -61,6 +58,6 @@ class MissionsDiffCallback : DiffUtil.ItemCallback<MissionsDTO>() {
 
 //RecyclerView OnClick handler
 
-class OnClickListener(val clickListener: (mission: MissionsDTO) -> Unit){
+class OnClickListener(val clickListener: (mission: MissionsDTO) -> Unit) {
     fun onClick(mission: MissionsDTO) = clickListener(mission)
 }

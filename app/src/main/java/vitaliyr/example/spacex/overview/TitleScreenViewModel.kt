@@ -1,5 +1,6 @@
 package vitaliyr.example.spacex.overview
 
+import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,14 +18,17 @@ class TitleScreenViewModel : ViewModel() {
     val companyInfo: LiveData<CompanyInfo>
         get() = _companyInfo
 
+    private val _downloadFailed = MutableLiveData<String>()
+    val downloadFailed: LiveData<String>
+        get() = _downloadFailed
 
 
-     fun getCompanyInfo() {
-         val service =
+    fun getCompanyInfo() {
+        val service =
             RetrofitClientInstance.retrofitInstance?.create(GetJsonData::class.java)
         val call = service?.getCompanyInfo()?.enqueue(object : Callback<CompanyInfo> {
             override fun onFailure(call: Call<CompanyInfo>, t: Throwable) {
-                val downloadFail = t.message
+                _downloadFailed.value = "Failed to download JSON data ${t.message}"
             }
 
             override fun onResponse(call: Call<CompanyInfo>, response: Response<CompanyInfo>) {
@@ -33,5 +37,6 @@ class TitleScreenViewModel : ViewModel() {
             }
         })
     }
+
 
 }

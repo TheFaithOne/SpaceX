@@ -4,4 +4,7 @@
     <item
         android:id="@+id/missionsScreenFragment"
         android:title="@string/missions" />
+    <item
+        android:id="@+id/coresFragment"
+        android:title="@string/cores" />
 </menu>

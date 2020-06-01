@@ -17,5 +17,16 @@
     <string name="mission_details_website">Website: %s</string>
     <string name="mission_details_twitter">Twitter: %s</string>
     <string name="mission_details_description">Description: %s</string>
+    <string name="cores">Cores</string>
+    <string name="core_serial">Core serial: %s</string>
+    <string name="core_block">Core block: %s</string>
+    <string name="core_status">Core status: %s</string>
+    <string name="core_launch_date">Core launch date: %s</string>
+    <string name="core_details">Details: %s</string>
+    <string name="all_cores">All cores</string>
+    <string name="past_cores">Past Cores</string>
+    <string name="upcoming_cores">Upcoming Cores</string>
+    <string name="active_cores">Active Cores</string>
+    <string name="cores_landed_on_water">Landed on water</string>
 
 </resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/allCores"
+        android:title="@string/all_cores" />
+    <item
+        android:id="@+id/activeCores"
+        android:title="@string/active_cores" />
+    <item
+        android:id="@+id/waterLanded"
+        android:title="@string/cores_landed_on_water" />
+</menu>
