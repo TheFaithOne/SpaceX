@@ -9,15 +9,14 @@
             type="vitaliyr.example.spacex.dtos.MissionsDTO" />
         <variable
             name="clickListener"
-            type="vitaliyr.example.spacex.missions.MissionListener" />
+            type="vitaliyr.example.spacex.missions.OnClickListener" />
 
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:onClick="@{() -> clickListener.onClick(missionId)}">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/mission_name"

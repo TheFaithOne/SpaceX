@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import vitaliyr.example.spacex.databinding.MissionsLsitBinding
 import vitaliyr.example.spacex.dtos.MissionsDTO
 
-class MissionsAdapter(val clickListener: MissionListener) :
+class MissionsAdapter(private val onClickListener: OnClickListener) :
     androidx.recyclerview.widget.ListAdapter<MissionsDTO, ViewHolder>(MissionsDiffCallback()) {
 
 
@@ -17,24 +17,27 @@ class MissionsAdapter(val clickListener: MissionListener) :
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = getItem(position)
-        holder.bind(item, clickListener)
-        holder.bind(getItem(position), clickListener)
+        val mission = getItem(position)
+        holder.itemView.setOnClickListener{
+            onClickListener.onClick(mission)
+        }
+        holder.bind(mission)
+        holder.bind(getItem(position))
 
     }
 
 
 }
 
-class ViewHolder(val binding: MissionsLsitBinding) : RecyclerView.ViewHolder(binding.root) {
+class ViewHolder(private val binding: MissionsLsitBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(
-        item: MissionsDTO,
-        clickListener: MissionListener
+        item: MissionsDTO
+        //clickListener: OnClickListener
     ) {
         //binding.missionName.text = item.mission_name
         binding.missionId = item
-        binding.clickListener = clickListener
+        //binding.clickListener = clickListener
     }
 
     companion object {
@@ -56,6 +59,8 @@ class MissionsDiffCallback : DiffUtil.ItemCallback<MissionsDTO>() {
     }
 }
 
-class MissionListener(val clickListener: (missionId: String) -> Unit){
-    fun onClick(mission: MissionsDTO) = clickListener(mission.missionId)
+//RecyclerView OnClick handler
+
+class OnClickListener(val clickListener: (mission: MissionsDTO) -> Unit){
+    fun onClick(mission: MissionsDTO) = clickListener(mission)
 }

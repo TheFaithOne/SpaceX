@@ -36,14 +36,16 @@ class MissionsScreenViewModel: ViewModel() {
          )
     }
 
-    private val _navigateToMissionDetails = MutableLiveData<String>()
-    val navigateToMissionDetails: LiveData<String>
+    private val _navigateToMissionDetails = MutableLiveData<MissionsDTO>()
+    val navigateToMissionDetails: LiveData<MissionsDTO>
     get() = _navigateToMissionDetails
 
-    fun onMissionClicked(id: String){
-        _navigateToMissionDetails.value = id
+    fun onMissionClicked(selectedMission: MissionsDTO){
+        _navigateToMissionDetails.value = selectedMission
     }
 
+    //Clearing LiveData object to avoid being redirected back to the details
+    //after coming back to the missions list
     fun onMissionDetailsNavigated(){
         _navigateToMissionDetails.value = null
     }

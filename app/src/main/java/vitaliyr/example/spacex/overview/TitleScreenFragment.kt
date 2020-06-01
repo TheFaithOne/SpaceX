@@ -42,9 +42,6 @@ class TitleScreenFragment : Fragment() {
 
         //binding.spacexLogo.setImageResource(viewModel.spacexLogo)
 
-        binding.buttonMissions.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_missionsScreenFragment)
-        )
 
         viewModel.companyInfo.observe(viewLifecycleOwner, Observer {companyInfo ->
             binding.companyInfo.text = companyInfo.summary

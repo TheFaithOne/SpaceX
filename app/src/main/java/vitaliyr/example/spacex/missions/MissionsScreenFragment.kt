@@ -35,14 +35,16 @@ class MissionsScreenFragment : Fragment() {
 
         viewModel.getMissions()
 
-        val adapter = MissionsAdapter(MissionListener { missionId ->
-            viewModel.onMissionClicked(missionId)
+        val adapter = MissionsAdapter(OnClickListener { mission ->
+            viewModel.onMissionClicked(mission)
         })
         binding.missionsList.adapter = adapter
 
-        viewModel.navigateToMissionDetails.observe(viewLifecycleOwner, Observer {missionId ->
-            missionId?.let {
-                this.findNavController().navigate(R.id.action_missionsScreenFragment_to_missions_details)
+        viewModel.navigateToMissionDetails.observe(viewLifecycleOwner, Observer {
+            if(it != null){
+                this.findNavController().navigate(MissionsScreenFragmentDirections
+                    .actionMissionsScreenFragmentToMissionsDetails(it))
+                viewModel.onMissionDetailsNavigated()
             }
         })
 

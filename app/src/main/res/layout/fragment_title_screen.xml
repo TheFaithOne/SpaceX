@@ -49,13 +49,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/spacex_logo" />
 
-                <Button
-                    android:id="@+id/button_missions"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Button" />
-
                 <TextView
                     android:id="@+id/company_info"
                     style="@style/spacex_text_style"

@@ -21,16 +21,18 @@
         tools:layout="@layout/missions_lsit">
         <action
             android:id="@+id/action_missionsScreenFragment_to_missions_details"
-            app:destination="@id/missions_details" />
+            app:destination="@id/missions_details"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/missions_details"
-        android:name="vitaliyr.example.spacex.missions.Missions_details"
+        android:name="vitaliyr.example.spacex.missions.MissionDetailsFragment"
         android:label="@string/mission_details_string"
         tools:layout="@layout/fragment_missions_details">
         <argument
-            android:name="missionSelected"
-            app:argType="string" />
+            android:name="selectedMission"
+            app:argType="vitaliyr.example.spacex.dtos.MissionsDTO" />
     </fragment>
 
 </navigation>

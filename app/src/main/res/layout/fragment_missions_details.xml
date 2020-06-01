@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".missions.Missions_details">
+        tools:context=".missions.MissionDetailsFragment">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -24,26 +24,15 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/missions_details_header"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_thin"
-                    android:text="@string/missions_details"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/black"
-                    android:textSize="40sp"
-                    android:textStyle="bold" />
-
-                <TextView
                     android:id="@+id/mission_name"
-                    android:text="@{viewModel.selectedMission.mission_name}"
-                    tools:text="Missions name"
-                    style="@style/missions_details_text_style" />
+                    style="@style/missions_details_text_style"
+                    android:layout_marginTop="16dp"
+                    android:text="@{viewModel.displayName}"
+                    tools:text="Missions name" />
 
                 <TextView
                     android:id="@+id/mission_id"
-                    android:text="@{viewModel.selectedMission.missionId}"
+                    android:text="@{viewModel.displayId}"
                     style="@style/missions_details_text_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -51,7 +40,7 @@
 
                 <TextView
                     android:id="@+id/manufacturers"
-                    android:text="@{viewModel.selectedMission.manufacturers.toString()}"
+                    android:text="@{viewModel.dislpayManufacturers.toString()}"
                     style="@style/missions_details_text_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -59,7 +48,7 @@
 
                 <TextView
                     android:id="@+id/payload_ids"
-                    android:text="@{viewModel.selectedMission.payloadIds.toString()}"
+                    android:text="@{viewModel.displayPayloadIds.toString()}"
                     style="@style/missions_details_text_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -67,31 +56,34 @@
 
                 <TextView
                     android:id="@+id/wikipedia_link"
-                    android:text="@{viewModel.selectedMission.wikipedia}"
                     style="@style/missions_details_text_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:text="@{viewModel.wikiLink}"
                     tools:text="Wikipedia link" />
 
                 <TextView
                     android:id="@+id/website_link"
-                    android:text="@{viewModel.selectedMission.website}"
                     style="@style/missions_details_text_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:text="@{viewModel.websiteLink}"
                     tools:text="Website link" />
 
                 <TextView
                     android:id="@+id/twitter_link"
-                    android:text="@{viewModel.selectedMission.twitter}"
                     style="@style/missions_details_text_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:text="@{viewModel.twitterLink}"
                     tools:text="Twitter link" />
 
                 <TextView
                     android:id="@+id/description"
-                    android:text="@{viewModel.selectedMission.description}"
+                    android:text="@{viewModel.displayDescription}"
                     style="@style/missions_details_text_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

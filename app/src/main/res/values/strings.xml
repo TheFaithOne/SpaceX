@@ -9,4 +9,13 @@
     <string name="spacex_app_name">SpaceX App</string>
     <string name="missions">Missions</string>
     <string name="mission_details_string">Mission Details</string>
+    <string name="mission_details_name">Mission name: %s</string>
+    <string name="missions_details_id">Mission\'\s ID: %s</string>
+    <string name="mission_details_manufacturers">Manufacturers: %s</string>
+    <string name="mission_details_payloadIds">Payload IDs: %s</string>
+    <string name="mission_details_wikipedia">Wiki link: %s</string>
+    <string name="mission_details_website">Website: %s</string>
+    <string name="mission_details_twitter">Twitter: %s</string>
+    <string name="mission_details_description">Description: %s</string>
+
 </resources>
